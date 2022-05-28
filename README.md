@@ -4,7 +4,7 @@
 
 This crate polyfills atomics on targets where they're not available, using critical sections. It is intended to be a drop-in replacement for `core::sync::atomic`.
 
-There is three "levels" of polyfilling:
+There are three "levels" of polyfilling:
 - Native: No polyfilling is performed, the native `core::sync::atomic::AtomicXX` is reexported.
 - CAS: Only compare-and-set operations are polyfilled, while loads and stores are native.
 - Full: Both load/store and compare-and-set operations are polyfilled.
@@ -25,6 +25,7 @@ The right polyfill level is automatically picked based on the target and the ato
 | xtensa-esp32s2-*   | Full             | Full              |
 | xtensa-esp32s3-*   | Native           | Full              |
 | xtensa-esp8266-*   | Cas              | Full              |
+| AVR                | Full             | Full              |
 
 <sup>1</sup>: The hardware is capable of supporting atomic load/stores up to 32 bits, so this could be "CAS" instead of "Full". However,
 support for this is missing in Rust. See [discussion here](https://github.com/rust-lang/rust/pull/81752).
