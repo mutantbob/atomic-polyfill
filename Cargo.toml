@@ -15,4 +15,4 @@ categories = [
 ]
 
 [dependencies]
-critical-section = "0.3.0"
+critical-section = "1.1.0"
